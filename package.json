@@ -1,8 +1,9 @@
 {
-  "name": "webpack-odin-boilerplate",
+  "name": "odin-merge-sort",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
-  "description": "Base boilerplate for new projects. Repo is github backup. Created from Odin library project.",
+  "description": "recursion example / merge sort project",
   "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agentjesse/webpack-odin-boilerplate.git"
+    "url": "git+https://github.com/agentjesse/odin-merge-sort.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/agentjesse/webpack-odin-boilerplate/issues"
+    "url": "https://github.com/agentjesse/odin-merge-sort/issues"
   },
-  "homepage": "https://github.com/agentjesse/webpack-odin-boilerplate#readme",
+  "homepage": "https://github.com/agentjesse/odin-merge-sort#readme",
   "devDependencies": {
     "css-loader": "^6.10.0",
     "eslint": "^8.57.0",

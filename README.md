@@ -1,6 +1,5 @@
-# webpack-odin-boilerplate
+# odin-merge-sort
 ---
-Base boilerplate for new projects. Github repo is also a backup. Created from Odin library project.
-
-the usual dist/distribution folder is named docs for hosting the production code on github pages.
-
+this project is a modified 'webpack-odin-boilerplate' template repository to run
+index.js with the node command in terminal. Done with few changes to
+package.json and index.js
