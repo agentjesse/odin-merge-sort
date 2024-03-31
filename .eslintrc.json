@@ -1,6 +1,6 @@
 {
     "env": {
-        "browser": true,
+        "node": true,
         "es2021": true
     },
     "extends": "airbnb-base",
@@ -9,6 +9,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "import/extensions": "off",
         "max-len":"warn",
         "no-console":"off",
         "arrow-spacing":"off",
