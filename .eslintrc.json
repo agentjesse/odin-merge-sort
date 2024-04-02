@@ -13,7 +13,6 @@
         "max-len":"warn",
         "no-console":"off",
         "arrow-spacing":"off",
-        "arrow-parens":"off",
         "spaced-comment":"off",
         "space-in-parens":"off",
         "no-unused-vars":"warn",
