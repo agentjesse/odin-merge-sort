@@ -16,7 +16,7 @@ example of program flow:
 */
 
 //For Node.js, when importing local modules, include the file extension in the import statement.
-import { logToConsole as lg, tableToConsole as tb } from './logger.js'; //shorthand loggers
+import { logToConsole as lg, objectToString as ots } from './logger.js'; //shorthand loggers
 
 const mergeLeftAndRight = ( leftHalf, rightHalf )=> {
   let leftArrPointer = 0;
