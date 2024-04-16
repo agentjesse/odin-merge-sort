@@ -21,7 +21,7 @@ import { logToConsole as lg, objectToString as ots } from './logger.js'; //short
 const mergeLeftAndRight = ( leftHalf, rightHalf )=> {
   let leftArrPointer = 0;
   let rightArrPointer = 0;
-  let resultArr = [];
+  const resultArr = [];
   //loop over array elements while their pointers are within the arrays
   while ( leftArrPointer < leftHalf.length && rightArrPointer < rightHalf.length ) {
     if ( leftHalf[leftArrPointer] < rightHalf[rightArrPointer] ) {
@@ -47,7 +47,7 @@ const mergeLeftAndRight = ( leftHalf, rightHalf )=> {
 };
 
 //mergeSort needs to return a sorted array so it can be called recursively with sub arrays
-const mergeSort = arr=> {
+export const mergeSort = (arr)=> {
   //base case 1: immediately return arrays of one element as they're already sorted
   if (arr.length === 1) return arr;
   //otherwise, begin sorting the multi element array by dividing it into halves
@@ -64,7 +64,11 @@ const mergeSort = arr=> {
   return mergeLeftAndRight( leftHalf, rightHalf );
 };
 
+// logger type tests:
 // lg( mergeSort( [2, 1] ) ); //[1,2]
 // lg( mergeSort( [2, 1, 4, 3] ) ); //[1,2,3,4]
-lg( mergeSort( [3, 2, 1, 13, 8, 5, 0, 1] ) ); //[0, 1, 1, 2, 3, 5, 8, 13]
+// lg( mergeSort( [3, 2, 1, 13, 8, 5, 0, 1] ) ); //[0, 1, 1, 2, 3, 5, 8, 13]
 // lg( mergeSort( [105, 79, 100, 110] ) ); //[79, 100, 105, 110]
+
+//jest testing for this file in index.test.js is done through ES Module exports
+export const sum = (a, b)=> a + b; //extra example fn for testing
