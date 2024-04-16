@@ -72,3 +72,49 @@ export const mergeSort = (arr)=> {
 
 //jest testing for this file in index.test.js is done through ES Module exports
 export const sum = (a, b)=> a + b; //extra example fn for testing
+
+export const capitalize = (str)=> str[0].toUpperCase().concat(str.slice(1));
+
+export const reverseString = (str)=> str.split('').reverse().join('');
+
+export const calculator = {
+  add: (a, b)=> a + b,
+  subtract: (a, b)=> a - b,
+  divide: (a, b)=> a / b,
+  multiply: (a, b)=> a * b
+};
+
+export const caesarCipher = (str, shiftFactor)=> {
+  const result = [];
+  let charCode; let newCharCode;
+  //split up the string to handle each char string
+  str.split('').forEach( (char)=> {
+    charCode = char.charCodeAt(0);
+    if ( char.match( /^[A-Z]$/ ) ) {
+    //path to handle uppercase chars; their integers: 65 to 90 inclusive
+      if (charCode + shiftFactor > 90) { //when wrapping needed...
+        //handle shifting past Z by mapping to a simpler domain and back. First map
+        //character's code to a 0-25 alphabet domain by subtracting A's UTF-16 domain code
+        //of 65; then add the shift; then calculate shift for mapping back by doing mod 26;
+        //then map back to UTF-16 domain by adding shift and 65.
+        newCharCode = ( ( charCode - 65 + shiftFactor ) % 26 ) + 65;
+        result.push( String.fromCharCode(newCharCode) );
+      } else { //no wrapping needed? just add shifted
+        result.push( String.fromCharCode(charCode + shiftFactor) );
+      }
+    } else if ( char.match( /^[a-z]$/ ) ) {
+    //path to handle lowercase chars; their integers: 97 to 122 inclusive
+      if (charCode + shiftFactor > 122) {
+        newCharCode = ( ( charCode - 97 + shiftFactor ) % 26 ) + 97;
+        result.push( String.fromCharCode(newCharCode) );
+      } else { result.push( String.fromCharCode(charCode + shiftFactor) ); }
+    } else { //path to handle non letters / punctuation
+      result.push(char);
+    }
+  } );
+  // lg(result)
+  return result.join(''); //return string of joined result array
+};
+
+//node debugger testing
+// lg( caesarCipher('Hi, Jerry!',3) )
