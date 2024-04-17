@@ -91,19 +91,19 @@ export const caesarCipher = (str, shiftFactor)=> {
   str.split('').forEach( (char)=> {
     charCode = char.charCodeAt(0);
     if ( char.match( /^[A-Z]$/ ) ) {
-    //path to handle uppercase chars; their integers: 65 to 90 inclusive
+    //this path handles uppercase chars with UTF-16 integer codes 65 to 90 inclusive
       if (charCode + shiftFactor > 90) { //when wrapping needed...
-        //handle shifting past Z by mapping to a simpler domain and back. First map
+        //handle shifting past Z via mapping to a simpler domain and back. First map
         //character's code to a 0-25 alphabet domain by subtracting A's UTF-16 domain code
         //of 65; then add the shift; then calculate shift for mapping back by doing mod 26;
         //then map back to UTF-16 domain by adding shift and 65.
         newCharCode = ( ( charCode - 65 + shiftFactor ) % 26 ) + 65;
         result.push( String.fromCharCode(newCharCode) );
-      } else { //no wrapping needed? just add shifted
+      } else { //no wrapping needed? just add shifted char
         result.push( String.fromCharCode(charCode + shiftFactor) );
       }
     } else if ( char.match( /^[a-z]$/ ) ) {
-    //path to handle lowercase chars; their integers: 97 to 122 inclusive
+    //this path handle lowercase chars with UTF-16 integer codes 97 to 122 inclusive
       if (charCode + shiftFactor > 122) {
         newCharCode = ( ( charCode - 97 + shiftFactor ) % 26 ) + 97;
         result.push( String.fromCharCode(newCharCode) );
@@ -112,9 +112,21 @@ export const caesarCipher = (str, shiftFactor)=> {
       result.push(char);
     }
   } );
-  // lg(result)
+  // lg(result);
   return result.join(''); //return string of joined result array
+};
+// lg( caesarCipher('Hi, Jerry!',3) )
+
+//this fn takes an array of numbers and returns an object with the following properties: average, min, max, and length.
+export const analyzeArray = (arr)=> {
+  const res = {};
+  //set average, min, max, length
+  res.average = arr.reduce( (acc, curr)=> acc + curr ) / arr.length;
+  res.min = arr.reduce( (acc, curr)=> (acc < curr ? acc : curr) );
+  // res.min = Math.min(...arr); //woah
+  res.max = arr.reduce( (a, c)=> ( a > c ? a : c ) );
+  res.length = arr.length;
+  return res;
 };
 
 //node debugger testing
-// lg( caesarCipher('Hi, Jerry!',3) )

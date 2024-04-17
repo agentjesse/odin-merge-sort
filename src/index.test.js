@@ -1,12 +1,12 @@
 // eslint-disable-next-line object-curly-newline
-import { mergeSort, sum, capitalize, reverseString, calculator, caesarCipher } from './index.js';
+import { mergeSort, sum, capitalize, reverseString, calculator, caesarCipher, analyzeArray } from './index.js';
 
-/* old jest examples, hidden with this comment block
 test('[3, 2, 1, 13, 8, 5, 0, 1] sorts to [0, 1, 1, 2, 3, 5, 8, 13]', ()=> {
   //use toEqual matcher for recursive comparison of object fields; deep equality.
   expect( mergeSort([3, 2, 1, 13, 8, 5, 0, 1]) ).toEqual( [0, 1, 1, 2, 3, 5, 8, 13] );
 } );
 
+/* old jest examples, hidden with this comment block
 test('adds 1 + 2 to equal 3 and not 999', () => {
   //matcher for exact equality (Object.is)
   expect(sum(1, 2)).toBe(3);
@@ -41,11 +41,19 @@ test('calculator tests', ()=> {
   expect( calculator.multiply(1, 2) ).toBe(2);
 });
 
-test('caesarCipher', ()=> {
+test('caesarCipher fn', ()=> {
   expect( caesarCipher('abc', 3) ).toMatch('def');
   expect( caesarCipher('Z', 3) ).toMatch('C');
   expect( caesarCipher('A', 3) ).toMatch('D');
   expect( caesarCipher('z', 3) ).toMatch('c');
   expect( caesarCipher('a', 3) ).toMatch('d');
   expect( caesarCipher('Hi, Jerry!', 3) ).toMatch('Kl, Mhuub!');
+});
+
+test('analyze array fn', ()=> {
+  const analyzationObj = analyzeArray([1, 8, 3, 4, 2, 6]);
+  expect( analyzationObj.average ).toBe(4);
+  expect( analyzationObj.min ).toBe(1);
+  expect( analyzationObj.max ).toBe(8);
+  expect( analyzationObj.length ).toBe(6);
 });
