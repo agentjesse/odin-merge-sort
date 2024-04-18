@@ -1,12 +1,12 @@
 // eslint-disable-next-line object-curly-newline
 import { mergeSort, sum, capitalize, reverseString, calculator, caesarCipher, analyzeArray } from './index.js';
 
-test('[3, 2, 1, 13, 8, 5, 0, 1] sorts to [0, 1, 1, 2, 3, 5, 8, 13]', ()=> {
+test.only('[3, 2, 1, 13, 8, 5, 0, 1] sorts to [0, 1, 1, 2, 3, 5, 8, 13]', ()=> {
   //use toEqual matcher for recursive comparison of object fields; deep equality.
   expect( mergeSort([3, 2, 1, 13, 8, 5, 0, 1]) ).toEqual( [0, 1, 1, 2, 3, 5, 8, 13] );
 } );
 
-/* old jest examples, hidden with this comment block
+/* old jest examples, hidden with this comment block, OR USE .only
 test('adds 1 + 2 to equal 3 and not 999', () => {
   //matcher for exact equality (Object.is)
   expect(sum(1, 2)).toBe(3);
